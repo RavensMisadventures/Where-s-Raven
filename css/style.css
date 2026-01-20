@@ -1,0 +1,172 @@
+:root{
+  --bg1:#4f7284;
+  --bg2:#3a5a69;
+  --panel:rgba(255,255,255,.16);
+  --stroke:rgba(255,255,255,.28);
+  --shadow:rgba(0,0,0,.25);
+  --text:#f5fbff;
+  --radius:26px;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:linear-gradient(var(--bg1),var(--bg2));
+  color:var(--text);
+}
+
+.topbar{
+  max-width:1200px;
+  margin:0 auto;
+  padding:16px;
+}
+
+.brand{display:flex;gap:12px;align-items:center;}
+.brand-card{
+  width:72px;height:72px;border-radius:20px;
+  background:rgba(0,0,0,.24);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 25px var(--shadow);
+}
+.brand-card img{width:64px;height:auto;}
+.brand-text h1{margin:0;font-size:1.7rem;}
+.brand-text p{margin:4px 0 0;opacity:.9;}
+
+.stage{max-width:1200px;margin:0 auto;padding:12px 16px 24px;}
+.panel{
+  background:var(--panel);
+  border-radius:var(--radius);
+  border:1px solid var(--stroke);
+  box-shadow:0 20px 40px var(--shadow);
+  padding:20px;
+}
+
+.screen{display:none;}
+.screen.active{display:block;}
+
+h2{text-align:center;margin:0 0 16px;}
+
+.scene-grid-4{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-bottom:12px;
+}
+
+.scene-btn{
+  border:none;border-radius:20px;
+  padding:14px;
+  background:rgba(255,255,255,.15);
+  color:inherit;
+  text-align:left;
+  display:flex;flex-direction:column;
+  gap:10px;
+  cursor:pointer;
+}
+
+.scene-thumb{
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:16px;
+  background-size:cover;
+  background-position:center;
+  border:1px solid rgba(255,255,255,.25);
+}
+
+.scene-title{font-weight:800;font-size:1.1rem;}
+.hint-text{text-align:center;font-size:.9rem;opacity:.9;margin-top:8px;}
+
+.hud{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+}
+.ghost-btn{
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.35);
+  background:transparent;
+  color:inherit;
+  padding:8px 14px;
+  cursor:pointer;
+  font-weight:600;
+}
+.hud-labels{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.chip{
+  border-radius:999px;
+  padding:6px 12px;
+  background:rgba(0,0,0,.22);
+  font-size:.85rem;
+}
+
+.scene-area{
+  position:relative;
+  max-width:900px;
+  margin:0 auto;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 16px 30px var(--shadow);
+}
+.scene-area img{display:block;width:100%;height:auto;}
+
+.hotspot{
+  position:absolute;
+  border:none;
+  padding:0;
+  background:transparent;
+  cursor:pointer;
+  /* outline:2px dashed rgba(255,255,0,.55); */ /* debugging */
+}
+
+.checklist-wrapper{margin-top:14px;}
+.checklist-title{margin:0 0 6px;font-size:1rem;}
+.checklist{display:flex;flex-wrap:wrap;gap:10px;}
+.check-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  min-width:64px;
+}
+.check-item img{
+  width:42px;height:42px;object-fit:contain;border-radius:12px;
+  background:rgba(0,0,0,.1);padding:4px;
+}
+.check-item span{font-size:.8rem;}
+.check-item.found img{opacity:.35;filter:grayscale(100%);}
+
+.message-bar{
+  position:fixed;
+  left:50%;
+  bottom:-60px;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,.82);
+  color:var(--text);
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:.9rem;
+  box-shadow:0 10px 24px rgba(0,0,0,.5);
+  opacity:0;
+  transition:opacity .25s ease, bottom .25s ease;
+  z-index:50;
+}
+.message-bar.visible{bottom:18px;opacity:1;}
+
+.sparkle{
+  position:absolute;inset:0;pointer-events:none;border-radius:999px;
+  background:radial-gradient(circle,rgba(255,255,255,.9),transparent 60%);
+  animation:sparkleFade 900ms ease-out forwards;
+}
+@keyframes sparkleFade{
+  0%{opacity:0;transform:scale(.5);}
+  20%{opacity:1;transform:scale(1);}
+  100%{opacity:0;transform:scale(1.4);}
+}
+
+.footer{text-align:center;padding:10px 4px 16px;font-size:.85rem;opacity:.85;}
+
+@media (max-width:600px){
+  .brand-card{width:56px;height:56px;}
+  .brand-card img{width:50px;}
+  .brand-text h1{font-size:1.4rem;}
+}

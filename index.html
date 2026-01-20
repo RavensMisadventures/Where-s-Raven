@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Where’s Raven?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-card">
+      <img src="assets/characters/raven.png" alt="Raven" />
+    </div>
+    <div class="brand-text">
+      <h1>Where’s Raven?</h1>
+      <p>Find the hidden friends and cozy treasures.</p>
+    </div>
+  </div>
+</header>
+
+<main class="stage">
+  <section class="panel">
+
+    <!-- START SCREEN -->
+    <section id="startScreen" class="screen active">
+      <h2>Choose your cozy scene</h2>
+
+      <div class="scene-grid-4">
+        <button class="scene-btn" data-scene="indoor">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/indoor.png');"></div>
+          <span class="scene-title">Indoor — Day</span>
+        </button>
+
+        <button class="scene-btn" data-scene="outdoor">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/outdoor.png');"></div>
+          <span class="scene-title">Outdoor — Day</span>
+        </button>
+
+        <button class="scene-btn" data-scene="indoor-night">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/indoor-night.png');"></div>
+          <span class="scene-title">Indoor — Night</span>
+        </button>
+
+        <button class="scene-btn" data-scene="outdoor-night">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/outdoor-night.png');"></div>
+          <span class="scene-title">Outdoor — Night</span>
+        </button>
+      </div>
+
+      <p class="hint-text">
+        Tap gently to search. There are no wrong answers.
+      </p>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="gameScreen" class="screen">
+      <div class="hud">
+        <button id="backBtn" class="ghost-btn">← Back to scenes</button>
+        <div class="hud-labels">
+          <span id="sceneName" class="chip"></span>
+          <span id="foundCount" class="chip"></span>
+        </div>
+      </div>
+
+      <div id="sceneArea" class="scene-area">
+        <img id="sceneImage" src="" alt="" />
+        <!-- Hotspots injected here -->
+      </div>
+
+      <div class="checklist-wrapper">
+        <h3 class="checklist-title">Find these:</h3>
+        <div id="checklist" class="checklist"></div>
+      </div>
+    </section>
+
+  </section>
+</main>
+
+<div id="messageBar" class="message-bar"></div>
+
+<footer class="footer">
+  Raven’s Misadventures • Where’s Raven?
+</footer>
+
+<script src="js/game.js"></script>
+</body>
+</html>
