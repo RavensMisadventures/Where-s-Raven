@@ -1,23 +1,132 @@
+/* ---------------------------
+   GLOBAL RESET
+--------------------------- */
+* {
+  box-sizing: border-box;
+}
 
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui;background:#f4f6f3}
-#app{display:flex;height:100vh}
-#find-panel{width:240px;background:#faf9f6;padding:16px;border-right:1px solid #ddd}
-#find-list{list-style:none;padding:0}
-#find-list li{display:flex;gap:10px;margin-bottom:10px;align-items:center}
-#find-list img{width:32px;background:transparent}
-.levels button{margin:4px;padding:6px 10px;border-radius:999px;border:none;background:#c7d4c1}
-#scene-container{flex:1;position:relative;overflow:hidden}
-.scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hidden-object{position:absolute;width:90px;cursor:pointer;background:transparent;z-index:3}
-.hidden-object img{width:100%;background:transparent}
-.hidden-object:hover{filter:drop-shadow(0 0 6px rgba(255,255,255,.6))}
-.hidden-object.found{opacity:.3;pointer-events:none}
-#win-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:10}
-#win-overlay.active{display:flex}
-.win-card{background:white;padding:30px;border-radius:20px;text-align:center}
-#start-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#f4f6f3;z-index:20}
-#start-screen.hidden{display:none}
-.start-card{background:white;padding:30px;border-radius:20px;text-align:center}
-.start-card img{width:120px}
-@media(max-width:700px){#app{flex-direction:column}#find-panel{width:100%}}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f6f4ef;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ---------------------------
+   LAYOUT
+--------------------------- */
+#app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#sidebar {
+  width: 220px;
+  padding: 16px;
+  background: #faf8f3;
+  border-right: 1px solid #e4e1d8;
+}
+
+#game {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ---------------------------
+   SCENE BACKGROUND
+--------------------------- */
+#scene {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---------------------------
+   GAME OBJECTS (CRITICAL)
+--------------------------- */
+.game-object {
+  position: absolute;
+  cursor: pointer;
+
+  /* 🔑 THIS IS THE KEY FIX */
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* remove inline spacing */
+.game-object,
+.game-object img {
+  display: block;
+}
+
+/* image itself */
+.game-object img {
+  width: 100%;
+  height: auto;
+
+  /* 🔑 FORCE TRUE TRANSPARENCY */
+  background: transparent !important;
+  mix-blend-mode: normal;
+  image-rendering: auto;
+  pointer-events: none;
+}
+
+/* ---------------------------
+   OBJECT SIZING (FIX TOO BIG)
+--------------------------- */
+.size-small { width: 60px; }
+.size-medium { width: 90px; }
+.size-large { width: 130px; }
+
+/* characters slightly larger */
+.character { width: 120px; }
+
+/* ---------------------------
+   DEPTH / HIDING
+--------------------------- */
+.depth-back { z-index: 1; }
+.depth-mid  { z-index: 3; }
+.depth-front{ z-index: 5; }
+
+/* ---------------------------
+   SIDEBAR LIST
+--------------------------- */
+.find-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.find-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.find-list img {
+  width: 24px;
+  height: auto;
+  background: transparent;
+}
+
+/* ---------------------------
+   BUTTONS
+--------------------------- */
+button {
+  border-radius: 999px;
+  border: 1px solid #cfcab8;
+  background: #e9e6dc;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ded9c8;
+}
