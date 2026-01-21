@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,6 @@
 </head>
 <body>
 
-<!-- START SCREEN -->
 <div id="start-screen" class="active">
   <div class="start-card">
     <img src="assets/characters/raven.png" alt="Raven">
@@ -18,15 +18,26 @@
   </div>
 </div>
 
-<!-- GAME APP -->
 <div id="app">
   <aside id="find-panel">
     <h2>Find these:</h2>
-    <ul id="find-list" class="find-list"></ul>
+    <ul id="find-list"></ul>
+    <div class="levels">
+      <button data-level="1">Easy</button>
+      <button data-level="2">Tricky</button>
+      <button data-level="3">Cozy Challenge</button>
+    </div>
   </aside>
 
   <main id="scene-container">
-    <img id="scene" class="scene" src="" alt="Scene">
+    <img id="scene" class="scene" />
+    <div id="win-overlay">
+      <div class="win-card">
+        <h2>You found Raven! 🐾</h2>
+        <button id="play-again">Play Again</button>
+        <button id="back-start">Back to Start</button>
+      </div>
+    </div>
   </main>
 </div>
 

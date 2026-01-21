@@ -1,138 +1,23 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
-html, body {
-  margin: 0;
-  height: 100%;
-  font-family: system-ui, sans-serif;
-  background: #f4f6f3;
-}
-
-#app {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-/* ================= FIND PANEL ================= */
-#find-panel {
-  width: 240px;
-  background: #faf9f6;
-  padding: 16px;
-  border-right: 1px solid rgba(0,0,0,0.1);
-}
-
-#find-panel h2 {
-  margin-top: 0;
-}
-
-.find-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.find-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.find-list img {
-  width: 36px;
-  background: transparent;
-}
-
-/* ================= SCENE ================= */
-#scene-container {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-
-.scene {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* ================= OBJECTS ================= */
-.hidden-object {
-  position: absolute;
-  z-index: 3;
-  width: 90px;
-  cursor: pointer;
-  background: transparent !important;
-}
-
-.hidden-object img {
-  width: 100%;
-  display: block;
-  background: transparent !important;
-}
-
-/* responsive sizing */
-@media (max-width: 900px) {
-  .hidden-object { width: 70px; }
-}
-@media (max-width: 600px) {
-  .hidden-object { width: 56px; }
-}
-
-/* hover glow */
-.hidden-object:hover {
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
-}
-
-/* found state */
-.hidden-object.found {
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-/* ================= START SCREEN ================= */
-#start-screen {
-  position: fixed;
-  inset: 0;
-  background: #f4f6f3;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-}
-
-#start-screen.active {
-  display: flex;
-}
-
-.start-card {
-  background: white;
-  padding: 32px;
-  border-radius: 22px;
-  text-align: center;
-  max-width: 340px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-.start-card img {
-  width: 120px;
-}
-
-.start-card button {
-  margin-top: 18px;
-  padding: 12px 22px;
-  font-size: 18px;
-  border-radius: 999px;
-  border: none;
-  background: #4f7f5f;
-  color: white;
-  cursor: pointer;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:#f4f6f3}
+#app{display:flex;height:100vh}
+#find-panel{width:240px;background:#faf9f6;padding:16px;border-right:1px solid #ddd}
+#find-list{list-style:none;padding:0}
+#find-list li{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+#find-list img{width:32px;background:transparent}
+.levels button{margin:4px;padding:6px 10px;border-radius:999px;border:none;background:#c7d4c1}
+#scene-container{flex:1;position:relative;overflow:hidden}
+.scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hidden-object{position:absolute;width:90px;cursor:pointer;background:transparent;z-index:3}
+.hidden-object img{width:100%;background:transparent}
+.hidden-object:hover{filter:drop-shadow(0 0 6px rgba(255,255,255,.6))}
+.hidden-object.found{opacity:.3;pointer-events:none}
+#win-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:10}
+#win-overlay.active{display:flex}
+.win-card{background:white;padding:30px;border-radius:20px;text-align:center}
+#start-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#f4f6f3;z-index:20}
+#start-screen.hidden{display:none}
+.start-card{background:white;padding:30px;border-radius:20px;text-align:center}
+.start-card img{width:120px}
+@media(max-width:700px){#app{flex-direction:column}#find-panel{width:100%}}
