@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Where's Raven?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-card">
+        <img src="assets/characters/raven.png" alt="Raven">
+      </div>
+      <div class="brand-text">
+        <h1>Where's Raven?</h1>
+        <p>Gentle hidden-objects game • ages 3–8</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="homeBtn" class="pill">Home</button>
+      <button id="newPlayBtn" class="pill">New play</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <!-- Start screen -->
+    <section id="startScreen" class="screen active">
+      <h2>Choose your cozy scene</h2>
+
+      <div class="difficulty-row">
+        <span class="difficulty-label">Difficulty:</span>
+        <div class="difficulty-buttons">
+          <button class="diff-btn active" data-diff="easy">Easy</button>
+          <button class="diff-btn" data-diff="tricky">Tricky</button>
+        </div>
+      </div>
+
+      <div class="scene-grid">
+        <button class="scene-btn" data-scene="indoor">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/indoor.png')"></div>
+          <div class="scene-meta">
+            <div class="scene-title">Indoor — daytime</div>
+            <div class="scene-sub">Cozy fort, pillows, and lamp light.</div>
+          </div>
+        </button>
+        <button class="scene-btn" data-scene="indoor-night">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/indoor-night.png')"></div>
+          <div class="scene-meta">
+            <div class="scene-title">Indoor — night</div>
+            <div class="scene-sub">Moonbeam, string lights, sleepy cozy.</div>
+          </div>
+        </button>
+        <button class="scene-btn" data-scene="outdoor">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/outdoor.png')"></div>
+          <div class="scene-meta">
+            <div class="scene-title">Backyard — daytime</div>
+            <div class="scene-sub">Deck, chairs, flowers, and grass.</div>
+          </div>
+        </button>
+        <button class="scene-btn" data-scene="outdoor-night">
+          <div class="scene-thumb" style="background-image:url('assets/scenes/outdoor-night.png')"></div>
+          <div class="scene-meta">
+            <div class="scene-title">Backyard — night</div>
+            <div class="scene-sub">Moon, stars, and firepit glow.</div>
+          </div>
+        </button>
+      </div>
+
+      <p class="hint">
+        Tip: Easy shows bigger objects in open spaces. Tricky makes them smaller and more tucked into busy areas.
+      </p>
+    </section>
+
+    <!-- Game screen -->
+    <section id="gameScreen" class="screen">
+      <div class="layout">
+        <aside class="sidebar">
+          <h3>Find these:</h3>
+          <div id="findList" class="find-list"></div>
+          <div class="progress" id="progressText"></div>
+        </aside>
+
+        <div class="scene-wrap">
+          <div class="hud">
+            <button id="backBtn" class="ghost">&larr; Back</button>
+            <div class="chips">
+              <span class="chip" id="sceneChip">Scene</span>
+              <span class="chip" id="diffChip">Difficulty</span>
+            </div>
+          </div>
+          <div class="scene-box" id="sceneBox">
+            <img id="sceneImg" src="" alt="Scene">
+            <div class="items-layer" id="itemsLayer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
