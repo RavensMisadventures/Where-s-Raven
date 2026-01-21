@@ -1,3 +1,4 @@
+
 :root {
   --sage: #c7d4c1;
   --sage-deep: #7c8f88;
@@ -7,7 +8,7 @@
   --terra: #c07a59;
   --shadow-soft: rgba(0, 0, 0, 0.1);
   --shadow-strong: rgba(0, 0, 0, 0.22);
-  --hint-glow: rgba(255, 255, 255, 0.85);
+  --hint-glow: rgba(255, 255, 255, 0.8);
 }
 
 *,
@@ -190,8 +191,7 @@ select {
 .scene {
   position: relative;
   width: 100%;
-  /* fixed aspect ratio for consistent layout */
-  padding-top: 62%;
+  padding-top: 62%; /* aspect ratio */
   background-size: cover;
   background-position: center;
 }
@@ -285,18 +285,10 @@ select {
 /* Animations */
 
 @keyframes ravenPop {
-  0% {
-    transform: scale(1);
-  }
-  35% {
-    transform: scale(1.12) translateY(-2px);
-  }
-  70% {
-    transform: scale(0.97);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  35% { transform: scale(1.12) translateY(-2px); }
+  70% { transform: scale(0.97); }
+  100% { transform: scale(1); }
 }
 
 /* Responsive */
