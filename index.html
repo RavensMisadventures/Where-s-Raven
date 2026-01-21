@@ -1,102 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Where’s Raven?</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset='UTF-8'>
+  <title>Where's Raven?</title>
+  <link rel='stylesheet' href='css/style.css'>
 </head>
 <body>
-<header class="topbar">
-  <div class="brand">
-    <div class="brand-card">
-      <img src="assets/characters/raven.png" alt="Raven" />
-    </div>
-    <div class="brand-text">
-      <h1>Where’s Raven?</h1>
-      <p>Find Raven first, then find cozy treasures. No timer. No rush.</p>
-    </div>
+  <div id='sidebar'>
+    <h2>Find these:</h2>
+    <ul id='find-list'></ul>
   </div>
-
-  <div class="top-actions">
-    <button id="soundBtn" class="pill" aria-pressed="true">🔊 Sound</button>
-    <button id="newPlayBtn" class="pill">🔁 New play</button>
-    <button id="homeBtn" class="pill">🏠 Home</button>
+  <div id='scene-container'>
+    <img id='scene' src='assets/scene-indoor.png'>
   </div>
-</header>
-
-<main class="stage">
-  <!-- START -->
-  <section id="startScreen" class="screen active">
-    <h2>Choose your cozy scene</h2>
-    <div class="scene-grid">
-      <button class="scene-btn" data-scene="indoor">
-        <div class="scene-thumb" style="background-image:url('assets/scenes/indoor.png')"></div>
-        <div class="scene-meta">
-          <div class="scene-title">Indoor — Day</div>
-          <div class="scene-sub">Warm and cozy</div>
-        </div>
-      </button>
-
-      <button class="scene-btn" data-scene="outdoor">
-        <div class="scene-thumb" style="background-image:url('assets/scenes/outdoor.png')"></div>
-        <div class="scene-meta">
-          <div class="scene-title">Outdoor — Day</div>
-          <div class="scene-sub">Fresh air</div>
-        </div>
-      </button>
-
-      <button class="scene-btn" data-scene="indoor-night">
-        <div class="scene-thumb" style="background-image:url('assets/scenes/indoor-night.png')"></div>
-        <div class="scene-meta">
-          <div class="scene-title">Indoor — Night</div>
-          <div class="scene-sub">Moonlight calm</div>
-        </div>
-      </button>
-
-      <button class="scene-btn" data-scene="outdoor-night">
-        <div class="scene-thumb" style="background-image:url('assets/scenes/outdoor-night.png')"></div>
-        <div class="scene-meta">
-          <div class="scene-title">Outdoor — Night</div>
-          <div class="scene-sub">Quiet twinkles</div>
-        </div>
-      </button>
-    </div>
-
-    <p class="hint">Tip: On a computer, hover to use the magnifying glass. On a tablet, press and hold.</p>
-  </section>
-
-  <!-- GAME -->
-  <section id="gameScreen" class="screen">
-    <div class="layout">
-      <aside class="sidebar" aria-label="Checklist">
-        <h3>Find these:</h3>
-        <div id="findList" class="find-list"></div>
-        <div class="progress" id="progressText">Found 0/0</div>
-      </aside>
-
-      <section class="scene-wrap">
-        <div class="hud">
-          <button id="backBtn" class="ghost">← Back</button>
-          <div class="chips">
-            <span id="sceneName" class="chip">Scene</span>
-            <span id="statusChip" class="chip">Find Raven first</span>
-          </div>
-        </div>
-
-        <div id="sceneBox" class="scene-box">
-          <img id="sceneImg" alt="Scene" />
-          <div id="itemsLayer" class="items-layer"></div>
-
-          <!-- Magnifier -->
-          <div id="magnifier" class="magnifier" aria-hidden="true"></div>
-        </div>
-      </section>
-    </div>
-  </section>
-</main>
-
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="js/game.js"></script>
+<script src='js/game.js'></script>
 </body>
 </html>
