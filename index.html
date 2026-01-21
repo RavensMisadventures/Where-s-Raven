@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Where’s Raven?</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -11,27 +11,25 @@
 <!-- START SCREEN -->
 <div id="start-screen" class="active">
   <div class="start-card">
-    <img src="assets/characters/raven.png" alt="Raven" />
+    <img src="assets/characters/raven.png" alt="Raven">
     <h1>Where’s Raven?</h1>
     <p>Can you find Raven and her friends?</p>
     <button id="start-btn">Let’s Play</button>
   </div>
 </div>
 
-<!-- APP -->
+<!-- GAME APP -->
 <div id="app">
   <aside id="find-panel">
     <h2>Find these:</h2>
-    <ul class="find-list" id="find-list"></ul>
+    <ul id="find-list" class="find-list"></ul>
   </aside>
 
   <main id="scene-container">
-    <img id="scene" class="scene" src="" alt="Scene" />
+    <img id="scene" class="scene" src="" alt="Scene">
   </main>
 </div>
 
-<!-- OVERLAY -->
-<div id="overlay">
-  <div id="overlay-content">
-    <h3>🎉 You found Raven!</h3>
-    <button on
+<script src="js/game.js"></script>
+</body>
+</html>
