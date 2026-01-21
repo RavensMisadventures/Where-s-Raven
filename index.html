@@ -1,18 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Where's Raven?</title>
-  <link rel='stylesheet' href='css/style.css'>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div id='sidebar'>
-    <h2>Find these:</h2>
-    <ul id='find-list'></ul>
+  <div class="page">
+    <header class="page-header">
+      <h1>Where's Raven?</h1>
+      <p class="tagline">Look closely, tap gently, take your time.</p>
+    </header>
+
+    <section class="controls" aria-label="Game controls">
+      <div class="control-group">
+        <label for="sceneSelect">Scene</label>
+        <select id="sceneSelect">
+          <option value="outdoor">Outdoor (Day)</option>
+          <option value="outdoor-night">Outdoor (Night)</option>
+          <option value="indoor">Indoor (Day)</option>
+          <option value="indoor-night">Indoor (Night)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="difficultySelect">Difficulty</label>
+        <select id="difficultySelect">
+          <option value="easy">Easy – big & close</option>
+          <option value="tricky">Tricky – small & tucked</option>
+        </select>
+      </div>
+
+      <button id="startButton" class="primary-button">Start game</button>
+
+      <p id="statusText" class="status-text" aria-live="polite"></p>
+    </section>
+
+    <main class="game-layout">
+      <aside class="find-panel" aria-label="Objects to find">
+        <h2>Find these:</h2>
+        <ul id="targetList" class="target-list"></ul>
+      </aside>
+
+      <section class="scene-wrapper">
+        <div id="scene" class="scene" aria-label="Hidden object scene"></div>
+
+        <!-- Raven found overlay -->
+        <div id="ravenFoundOverlay" class="overlay hidden" aria-hidden="true">
+          <div class="overlay-card">
+            <p class="overlay-title">Raven found! 🐾</p>
+            <p class="overlay-subtitle">Great looking, keep going!</p>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
-  <div id='scene-container'>
-    <img id='scene' src='assets/scene-indoor.png'>
-  </div>
-<script src='js/game.js'></script>
+
+  <script src="js/game.js"></script>
 </body>
 </html>
